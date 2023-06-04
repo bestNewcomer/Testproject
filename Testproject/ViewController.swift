@@ -1,39 +1,32 @@
-//
-//  ViewController.swift
-//  Testproject
-//
-//  Created by Ринат Шарафутдинов on 23.05.2023.
-//
 
 import UIKit
 
+extension DateFormatter {
+    static let logDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_Ru")
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }()
+}
+   
 class ViewController: UIViewController {
+    let logDate = DateFormatter.logDateFormatter.string(from: Date())
     
     @IBOutlet private weak var logTextView: UITextView!
     
     @IBOutlet private weak var counterLabel: UILabel!
-    var counter: Int = 0
+    private var counter: Int = 0
     
     @IBAction private func pressPlusButton(_ sender: Any) {
         counter += 1
-        let date = Date()
-        let dateFormatter = DateFormatter ()
-        dateFormatter.locale = Locale(identifier: "ru_Ru")
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        let logDate = dateFormatter.string(from: date)
         counterLabel.text = "Значение счетчика: \(counter)"
         logTextView.text += "\n\(logDate): значение изменено на +1"
     }
     
     @IBAction private func pressMinusButton(_ sender: Any) {
         counter -= 1
-        let date = Date()
-        let dateFormatter = DateFormatter ()
-        dateFormatter.locale = Locale(identifier: "ru_Ru")
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        let logDate = dateFormatter.string(from: date)
         if counter < 0 {
             counter = 0
             counterLabel.text = "Значение счетчика: \(counter)"
@@ -46,20 +39,8 @@ class ViewController: UIViewController {
     
     @IBAction private func pressClearButton(_ sender: Any) {
         counter = 0
-        let date = Date()
-        let dateFormatter = DateFormatter ()
-        dateFormatter.locale = Locale(identifier: "ru_Ru")
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        let logDate = dateFormatter.string(from: date)
         counterLabel.text = "Значение счетчика: \(counter)"
         logTextView.text += "\n\(logDate): значение сброшено"
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-
 }
 
