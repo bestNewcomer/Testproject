@@ -43,6 +43,6 @@ class ViewController: UIViewController {
         logTextView.text += "\n\(logDate): значение сброшено"
     }
 }
-kjdbvosdvhodvhnsldvnsldvnlsdknvlskdnv
-kdsjvbskdjbfksbvskdvb
+//kjdbvosdvhodvhnsldvnsldvnlsdknvlskdnv
+//kdsjvbskdjbfksbvskdvb
 
